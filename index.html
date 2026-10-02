@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mi Maravilla hermosa ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      color: white;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Lluvia de corazones sutil */
+    .hearts {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .heart {
+      position: absolute;
+      font-size: 1.3rem;
+      color: #ff6b6b;
+      animation: fall linear infinite;
+      user-select: none;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    #intro {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 10;
+      position: relative;
+    }
+    #intro h1 {
+      font-size: 3.5em;
+      margin: 0 25px 20px;
+      text-shadow: 3px 3px 15px #000;
+    }
+    #intro p {
+      font-size: 1.6em;
+      margin: 0 30px 30px;
+      max-width: 85%;
+      line-height: 1.5;
+    }
+    #startBtn {
+      padding: 18px 55px;
+      font-size: 1.6em;
+      background: #ff4757;
+      border: none;
+      border-radius: 60px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+      transition: all 0.3s;
+    }
+    #startBtn:hover { transform: scale(1.1); background: #ff6b81; }
+
+    .slider {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      display: none;
+      z-index: 5;
+    }
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+    }
+    .slide.active { opacity: 1; }
+
+    .content {
+      background: rgba(0,0,0,0.65);
+      padding: 60px 35px;
+      border-radius: 30px;
+      max-width: 92%;
+      max-height: 75vh;
+      overflow-y: auto;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+    }
+    h2 {
+      font-size: 3.2em;
+      margin: 0 0 30px;
+      text-shadow: 2px 2px 12px black;
+    }
+    p {
+      font-size: 1.6em;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 5.5em;
+      cursor: pointer;
+      z-index: 20;
+      text-shadow: 0 0 15px black;
+      color: rgba(255,255,255,0.95);
+    }
+    .prev { left: 20px; }
+    .next { right: 20px; }
+
+    .dots {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      z-index: 20;
+    }
+    .dot {
+      width: 18px;
+      height: 18px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 50%;
+      margin: 0 12px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .dot.active {
+      background: #ff6b6b;
+      transform: scale(1.4);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Lluvia de corazones -->
+<div class="hearts" id="hearts"></div>
+
+<!-- Intro -->
+<div id="intro">
+  <h1>Mi Maravilla 💖</h1>
+  <p>Las 7 maravillas del mundo son increíbles...<br>pero desde que te conocí, tú eres la que más me fascina ❤️</p>
+  <button id="startBtn">Descubre por qué</button>
+</div>
+
+<!-- Slider -->
+<div class="slider" id="slider">
+
+  <!-- 1. Gran Muralla -->
+  <div class="slide" style="background-image: url('https://content-historia.nationalgeographic.com.es/medio/2014/06/12/china2_1787x2000.jpg');">
+    <div class="content">
+      <h2>Gran Muralla China</h2>
+      <p>Eres como mi Gran Muralla: imponente, fascinante y cada vez que estás cerca, siento que nada más importa. Me encanta estar a tu lado. ❤️</p>
+    </div>
+  </div>
+
+  <!-- 2. Petra -->
+  <div class="slide" style="background-image: url('https://www.notasdeunviajero.com/wp-content/uploads/2019/02/tesoro-de-petra-jordania.jpg');">
+    <div class="content">
+      <h2>Petra</h2>
+      <p>Como Petra, escondida y llena de secretos, tú eres ese lugar especial que descubrí y que no dejo de querer explorar más. Me tienes atrapado. </p>
+    </div>
+  </div>
+
+  <!-- 3. Taj Mahal -->
+  <div class="slide" style="background-image: url('https://static.nationalgeographicla.com/files/styles/image_3200/public/93080.jpg?w=1600');">
+    <div class="content">
+      <h2>Taj Mahal</h2>
+      <p>El Taj Mahal es un monumento al amor... y cada vez que pienso en ti, siento que podría construir algo igual de bonito solo para verte sonreír. </p>
+    </div>
+  </div>
+
+  <!-- 4. Machu Picchu -->
+  <div class="slide" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Machu_Picchu%2C_Peru_%282018%29.jpg/1280px-Machu_Picchu%2C_Peru_%282018%29.jpg');">
+    <div class="content">
+      <h2>Machu Picchu</h2>
+      <p>Eres mi Machu Picchu: misteriosa, en lo alto de mis pensamientos, un sitio perfecto donde me encanta perderme pensando en ti. ️</p>
+    </div>
+  </div>
+
+  <!-- 5. Chichén Itzá -->
+  <div class="slide" style="background-image: url('https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/06/e5/0a/8c.jpg');">
+    <div class="content">
+      <h2>Chichén Itzá</h2>
+      <p>Como esa pirámide que alinea el sol perfectamente, contigo todo encaja de una forma que me hace sonreír sin parar. Eres mi equilibrio favorito. </p>
+    </div>
+  </div>
+
+  <!-- 6. Coliseo -->
+  <div class="slide" style="background-image: url('https://content-historia.nationalgeographic.com.es/medio/2018/02/28/a325302d__1280x861.jpg');">
+    <div class="content">
+      <h2>Coliseo de Roma</h2>
+      <p>En mi día a día, tú eres la aventura que más ganas tengo de ganar: conquistarte poco a poco con sonrisas y charlas. </p>
+    </div>
+  </div>
+
+  <!-- 7. Cristo Redentor -->
+  <div class="slide" style="background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2d/ab/a0/bd/o-santuario-cristo-redentor.jpg?w=900&h=-1&s=1');">
+    <div class="content">
+      <h2>Cristo Redentor</h2>
+      <p>Como ese abrazo gigante sobre Río, me dan ganas de abrazarte siempre y proteger ese sentimiento bonito que me provocas. </p>
+    </div>
+  </div>
+</div>
+
+<div class="arrow prev" onclick="changeSlide(-1)">&#10094;</div>
+<div class="arrow next" onclick="changeSlide(1)">&#10095;</div>
+
+<div class="dots" id="dots">
+  <span class="dot active" onclick="currentSlide(0)"></span>
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+</div>
+
+<script>
+// Lluvia de corazones
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.innerHTML = Math.random() > 0.5 ? '❤️' : '💕';
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.animationDuration = (Math.random() * 4 + 5) + 's';
+  heart.style.opacity = Math.random() * 0.5 + 0.5;
+  document.getElementById('hearts').appendChild(heart);
+  setTimeout(() => heart.remove(), 10000);
+}
+setInterval(createHeart, 400);
+
+// Slider
+let slideIndex = 0;
+const slider = document.getElementById('slider');
+const intro = document.getElementById('intro');
+
+document.getElementById('startBtn').onclick = () => {
+  intro.style.display = 'none';
+  slider.style.display = 'block';
+  showSlide(slideIndex);
+};
+
+function changeSlide(n) {
+  showSlide(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlide(slideIndex = n);
+}
+
+function showSlide(n) {
+  const slides = document.getElementsByClassName('slide');
+  const dots = document.getElementsByClassName('dot');
+  if (n >= slides.length) slideIndex = 0;
+  if (n < 0) slideIndex = slides.length - 1;
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].classList.remove('active');
+    dots[i].classList.remove('active');
+  }
+  slides[slideIndex].classList.add('active');
+  dots[slideIndex].classList.add('active');
+}
+</script>
+
+</body>
+</html>
